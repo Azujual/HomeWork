@@ -1,0 +1,46 @@
+import java.text.DecimalFormat;
+
+public class MpointMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DecimalFormat df = new DecimalFormat("#.00");
+		Glass g1 = new Glass(2,2,4,8);
+		Glass g2 = new Glass(2,2,5,9);
+
+		System.out.println("Volume of glass g1 is: " + df.format(g1.volume(g1)));
+		System.out.println("Init coordinates of glass are: " + g1.x + " " + g1.y);
+		System.out.println("Radius of glass: " + g1.r);
+		System.out.println("Heght of glass: " + g1.h);
+		System.out.println();
+		System.out.println("Volume of glass g2 is: " + df.format(g2.volume(g2)));
+		System.out.println("Init coordinates of glass are: " + g2.x + " " + g2.y);
+		System.out.println("Radius of glass: " + g2.r);
+		System.out.println("Heght of glass: " + g2.h);
+		compare(g1, g2);
+		System.out.println();
+		insert(g1, g2);
+	}
+	
+	public static void compare(Glass g, Glass k){
+		if (g.volume(g) > k.volume(k)){
+			System.out.println("First glass is grater than Second glass by Volume!");
+		}
+		else {
+			System.out.println("Second glass is grater than First glass by Volume!");
+		}
+	}
+
+	public static void insert(Glass g, Glass k){
+		if ((g.h > k.h) && (g.r > k.r)) {
+			System.out.println("Second glass can be inserted in First.");
+		}
+		else if ((g.h < k.h) && (g.r < k.r)) {
+			System.out.println("First glass can be inserted in Second.");
+		}
+		else {
+			System.out.println("Glasses are completely different");
+		}
+	}
+	
+}
